@@ -1,0 +1,67 @@
+/* Empty. Add your own CSS if you like */
+.fb{
+	font-size: 160%;
+	color:#3B5999;
+}
+.twitter{
+	font-size: 160%;
+	color:#55CCAE;
+}
+.whatsapp{
+	font-size:160%;
+	color:green;
+}
+.tabs-striped.tabs-light.tabs{
+	background-color: #3498db !important;
+	border: none !important;
+}
+.title{
+	color:#fff !important;
+}
+
+
+.content{
+	background: rgba(41, 128, 185,1.0);
+	color: #fff !important;
+}
+
+.scorebox{
+
+	font-weight: bold;
+	background-color: #2980b9;
+	text-align: center !important;
+
+}
+.h3.scorebox{
+	margin: 0;
+	color:#bdc3c7 !important;
+	line-height: 0.6 !important;
+	padding: 20px 20px !important;
+	
+	
+}
+.scorepad{
+	text-align: left !important;
+	padding:20px 0;
+}
+.scorepadright{
+	text-align: right !important;
+	padding:20px 0;
+}
+.h5{
+	margin: 0 !important;
+	color:#bdc3c7 !important;
+}
+.item-divider{
+	background: #1abc9c !important;
+	border: solid 4px #34495e;
+
+}
+.col{
+	text-align: center;
+}
+.itembody{
+	background-color: #3498db !important;
+	border: #3498db !important;
+	color: #bdc3c7 !important;
+}

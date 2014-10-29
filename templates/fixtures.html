@@ -1,0 +1,45 @@
+<ion-view title="Fixtures">
+<ion-content class="content">
+<div ng-repeat="fix in fixtures">
+<div class="card">
+	
+		
+			<div class="item itembody">
+			<div class="row">
+				
+				<div class="scorepad col">
+
+					<i class="icon ion-chatbubble-working"></i>
+				</div>
+				<div class="scorepad col h5">{{fix.home}}
+				</div>
+				<div class="col scorebox h3">{{fix.score}}
+				</div>
+
+				<div class="scorepadright col h5">{{fix.away}}
+				</div>
+				<div class="scorepadright col"><i class="icon ion-ios7-telephone-outline score"></i>
+				</div>
+			</div>
+			
+		</div>
+			<div class="item item-divider">
+				<div class="row">
+					<div class="col">
+						{{fix.display}}
+					</div>
+					<div class="col">
+						{{fix.result}}
+					</div>
+				</div>
+			</div>
+		
+	</div>
+</div>
+<div class="row">
+	<div class="col col-33 col-offset-33" on-tap="loadMore()">
+		<i class="icon ion-refresh"> Load More</i>
+	</div>
+</div>
+</ion-content>
+</ion-view>

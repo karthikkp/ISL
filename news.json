@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "headline": "hey this is karthik",
+    "detail": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut erat libero, tincidunt ac rhoncus tempus, blandit id nulla. Morbi quis nisi cursus, pretium massa vel, fringilla ipsum. Nulla lacinia, mauris rhoncus pellentesque tempor, erat purus mollis tortor, sit amet pellentesque mi dui eu velit. Maecenas mollis lorem eget suscipit sodales. Aenean luctus tincidunt dolor. Sed at convallis metus, fermentum commodo leo. Vivamus quis est venenatis, iaculis metus at, finibus ligula. ",
+    "date": 1
+  },
+  {
+    "id": 2,
+    "headline": "hey this is karthik",
+    "detail": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut erat libero, tincidunt ac rhoncus tempus, blandit id nulla. Morbi quis nisi cursus, pretium massa vel, fringilla ipsum. Nulla lacinia, mauris rhoncus pellentesque tempor, erat purus mollis tortor, sit amet pellentesque mi dui eu velit. Maecenas mollis lorem eget suscipit sodales. Aenean luctus tincidunt dolor. Sed at convallis metus, fermentum commodo leo. Vivamus quis est venenatis, iaculis metus at, finibus ligula. "
+  },
+  {
+    "id": 3,
+    "headline": "hey this is karthik",
+    "detail": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut erat libero, tincidunt ac rhoncus tempus, blandit id nulla. Morbi quis nisi cursus, pretium massa vel, fringilla ipsum. Nulla lacinia, mauris rhoncus pellentesque tempor, erat purus mollis tortor, sit amet pellentesque mi dui eu velit. Maecenas mollis lorem eget suscipit sodales. Aenean luctus tincidunt dolor. Sed at convallis metus, fermentum commodo leo. Vivamus quis est venenatis, iaculis metus at, finibus ligula. "
+  },
+  {
+    "id": 4,
+    "headline": "hey this is karthik",
+    "detail": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut erat libero, tincidunt ac rhoncus tempus, blandit id nulla. Morbi quis nisi cursus, pretium massa vel, fringilla ipsum. Nulla lacinia, mauris rhoncus pellentesque tempor, erat purus mollis tortor, sit amet pellentesque mi dui eu velit. Maecenas mollis lorem eget suscipit sodales. Aenean luctus tincidunt dolor. Sed at convallis metus, fermentum commodo leo. Vivamus quis est venenatis, iaculis metus at, finibus ligula. "
+  }
+]

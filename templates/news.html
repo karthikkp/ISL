@@ -1,0 +1,14 @@
+<ion-view title="News">
+<ion-content>
+
+<div class="list card">
+	<div ng-repeat="info in news">
+  <a href="#/tab/news/{{info.id}}"class="item item-icon-right item-text-wrap">
+  	 <i class="icon ion-ios7-telephone"></i>
+    {{info.headline}}
+  </a>
+</div>
+</div>
+
+</ion-view>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-view title="Detailed Article">
+<ion-content>
+<div class="list card">
+	<div class="item">
+		{{info.headline}}
+	</div>
+	<div class="item item-body">
+		{{info.detail}}
+	</div>
+	<div class="item">
+		<div class="row">
+			<div class="col">
+				<i data-head="{{info.headline}}"class="ion-social-facebook fb" on-tap="fb($event)"></i>
+			</div>
+			<div class="col">
+				<i data-head="{{info.headline}}" on-tap="twitter($event)"class="ion-social-twitter twitter"></i>
+			</div>
+			<div class="col">
+				<i data-head="{{info.headline}}" on-tap="whatsapp($event)"class="icon-whatsappalt whatsapp"></i>
+			</div>
+			<div class="col">
+				<i data-head="{{info.headline}}" on-tap="other($event)"class="ion-share fb"></i>
+		</div>
+	</div>
+	</div>
+</ion-view>
+</ion-content>

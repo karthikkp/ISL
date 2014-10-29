@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg>
+<metadata>
+Created by FontForge 20110222 at Sun Jul 21 00:46:45 2013
+ By www-data
+WebHostingHub Glyphs - author WebHostingHub.com - http://webhostinghub.com/glyphs/
+</metadata>
+<defs>
+<font id="WebHostingHub-Glyphs" horiz-adv-x="1024" vert-adv-y="1024" >
+  <font-face 
+    font-family="WebHostingHub-Glyphs"
+    font-weight="400"
+    font-stretch="normal"
+    units-per-em="1024"
+    panose-1="2 0 5 3 0 0 0 0 0 0"
+    ascent="819"
+    descent="-205"
+    x-height="1024"
+    cap-height="1024"
+    bbox="-2 -2 1050.75 1029"
+    underline-thickness="0"
+    underline-position="0"
+    unicode-range="U+0024-F7F3"
+  />
+<missing-glyph horiz-adv-x="256" vert-adv-y="90" 
+ />
+    <glyph glyph-name="uniF77C" unicode="whatsappalt" vert-adv-y="90" 
+d="M544 64q-124 0 -233 60l-311 -124l124 311q-60 109 -60 233q0 98 38 186.5t102.5 153t153 102.5t186.5 38t186.5 -38t153 -102.5t102.5 -153t38 -186.5t-38 -186.5t-102.5 -153t-153 -102.5t-186.5 -38zM544 896q-96 0 -177 -47t-128 -128t-47 -177t47 -177t128 -128
+t177 -47t177 47t128 128t47 177t-47 177t-128 128t-177 47zM717 342q-39 -39 -121.5 -11.5t-160 105t-105 160t11.5 121.5l47 47q6 6 20.5 -1.5t26.5 -24.5t12 -34v-64l-32 -36q12 -45 77.5 -110.5t110.5 -77.5l36 32h64q17 0 34 -12t24.5 -26.5t1.5 -20.5z" />  </font>
+</defs></svg>
