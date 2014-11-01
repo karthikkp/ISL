@@ -1,14 +1,20 @@
 <ion-view title="News">
 <ion-content>
 
-<div class="list card">
+<div class="list card item-text-wrap">
 	<div ng-repeat="info in news">
   <a href="#/tab/news/{{info.id}}"class="item item-icon-right item-text-wrap">
-  	 <i class="icon ion-ios7-telephone"></i>
-    {{info.headline}}
+  	 <i class="icon ion-chevron-right chevron"></i>
+    <span class="h4 tablefont">{{info.headline}}</span>
+    <p>{{info.date}}</p>
   </a>
 </div>
 </div>
-
+<div class="row">
+	<div class="col"><i class="icon ion-loading-c refresh" ng-show="loading"></i></div>
+	</div>
+	<div class="row">
+	<div class="col" on-tap="refreshm()"><i class="icon ion-refresh refresh" ng-show="refresh"> Refresh</i></div>
+	</div>
 </ion-view>
 </ion-content>

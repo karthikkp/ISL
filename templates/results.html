@@ -1,6 +1,6 @@
-<ion-view title="Fixtures">
+<ion-view title="Results">
 <ion-content class="content">
-<div ng-repeat="fix in fixtures">
+<div ng-repeat="result in results">
 <div class="card">
 	
 		
@@ -11,12 +11,12 @@
 
 					<i class="icon ion-chatbubble-working"></i>
 				</div>
-				<div class="scorepad col h5">{{fix.home}}
+				<div class="scorepad col h5">{{result.home}}
 				</div>
-				<div class="col scorebox h3">{{fix.score}}
+				<div class="col scorebox h3">{{result.score}}
 				</div>
 
-				<div class="scorepadright col h5">{{fix.away}}
+				<div class="scorepadright col h5">{{result.away}}
 				</div>
 				<div class="scorepadright col"><i class="icon ion-ios7-telephone-outline score"></i>
 				</div>
@@ -25,11 +25,11 @@
 		</div>
 			<div class="item item-divider">
 				<div class="row">
-					<div class="col item-text-wrap">
-						{{fix.display}}
+					<div class="col">
+						{{result.display}}
 					</div>
 					<div class="col">
-						{{fix.result}}
+						{{result.result}}
 					</div>
 				</div>
 			</div>
@@ -39,13 +39,13 @@
 <div class="row">
 	<div class="col"><i class="icon ion-loading-c refresh" ng-show="loading"></i></div>
 	</div>
-<div class="row" on-tap="loadMore()" ng-show="!loading | !refresh">
+<div class="row" on-tap="loadMore()">
 	<div class="col col-33 col-offset-33" >
 		<i class="icon ion-refresh"> Load More</i>
 	</div>
 </div>
 <div class="row">
-	<div class="col" on-tap="refreshf()"><i class="icon ion-refresh refresh" ng-show="refresh"> Refresh</i></div>
+	<div class="col" on-tap="refreshr()"><i class="icon ion-refresh refresh" ng-show="refresh"> Refresh</i></div>
 	</div>
 </ion-content>
 </ion-view>

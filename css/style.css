@@ -52,6 +52,10 @@
 	margin: 0 !important;
 	color:#bdc3c7 !important;
 }
+.h4{
+	margin: 0 !important;
+	color:#bdc3c7 !important;
+}
 .item-divider{
 	background: #1abc9c !important;
 	border: solid 4px #34495e;
@@ -64,4 +68,17 @@
 	background-color: #3498db !important;
 	border: #3498db !important;
 	color: #bdc3c7 !important;
+}
+.table{
+	padding:20px 0;
+}
+.tablefont{
+	color: #444 !important;
+}
+.chevron{
+	font-size:80% !important;
+	color: #444 !important;
+}
+.refresh{
+	font-size: 160% !important;
 }

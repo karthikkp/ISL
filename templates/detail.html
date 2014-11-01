@@ -2,7 +2,8 @@
 <ion-content>
 <div class="list card">
 	<div class="item">
-		{{info.headline}}
+		<h2 class="tablefont">{{info.headline}}</h2>
+		<p>{{info.date}}</p>
 	</div>
 	<div class="item item-body">
 		{{info.detail}}
@@ -10,16 +11,16 @@
 	<div class="item">
 		<div class="row">
 			<div class="col">
-				<i data-head="{{info.headline}}"class="ion-social-facebook fb" on-tap="fb($event)"></i>
+				<i data-head="{{info.headline}}" data-url="{{info.url}}" class="ion-social-facebook fb" on-tap="fb($event)"></i>
 			</div>
 			<div class="col">
-				<i data-head="{{info.headline}}" on-tap="twitter($event)"class="ion-social-twitter twitter"></i>
+				<i data-head="{{info.headline}}" data-url="{{info.url}}" on-tap="twitter($event)"class="ion-social-twitter twitter"></i>
 			</div>
 			<div class="col">
-				<i data-head="{{info.headline}}" on-tap="whatsapp($event)"class="icon-whatsappalt whatsapp"></i>
+				<i data-head="{{info.headline}}" data-url="{{info.url}}" on-tap="whatsapp($event)"class="icon-whatsappalt whatsapp"></i>
 			</div>
 			<div class="col">
-				<i data-head="{{info.headline}}" on-tap="other($event)"class="ion-share fb"></i>
+				<i data-head="{{info.headline}}" data-url="{{info.url}}"on-tap="other($event)"class="ion-share fb"></i>
 		</div>
 	</div>
 	</div>

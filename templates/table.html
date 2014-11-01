@@ -1,13 +1,28 @@
 <ion-view title="Table">
 <ion-content>
-<div ng-repeat="data in table">
+<div class="card">
+<div class="row item table">
+  <div class="col"><span class="h5 tablefont">Team</span></div>
+  <div class="col"><span class="h5 tablefont">Played</span></div>
+  <div class="col"><span class="h5 tablefont">Scored</span></div>
+  <div class="col"><span class="h5 tablefont">Conceded</span></div>
+  <div class="col"><span class="h5 tablefont">GD</span></div>
+  <div class="col"><span class="h5 tablefont">Points</span></div>
+</div>
+<div class="row item table" ng-repeat="data in table">
+  <div class="col"><span class="h6 tablefont">{{data.team}}</span></div>
+  <div class="col"><span class="h6 tablefont">{{data.played}}</span></div>
+  <div class="col"><span class="h6 tablefont">{{data.gs}}</span></div>
+  <div class="col"><span class="h6 tablefont">{{data.gl}}</span></div>
+  <div class="col"><span class="h6 tablefont">{{data.gd}}</span></div>
+  <div class="col"><span class="h6 tablefont">{{data.points}}</span></div>
+</div>
+</div>
 <div class="row">
-  <div class="col">{{data.team}}</div>
-  <div class="col">{{data.points}}</div>
-  <div class="col">{{data.gs}}</div>
-  <div class="col">{{data.gl}}</div>
-  <div class="col">.col</div>
-</div>
-</div>
+  <div class="col"><i class="icon ion-loading-c refresh" ng-show="loading"></i></div>
+  </div>
+  <div class="row">
+  <div class="col" on-tap="refresht()"><i class="icon ion-refresh refresh" ng-show="refresh"> Refresh</i></div>
+  </div>
 </ion-content>
 </ion-view>

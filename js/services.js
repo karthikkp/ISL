@@ -4,5 +4,3 @@ angular.module('starter')
   localStorage.setItem('time', moment());
   return localStorage.setItem('time', moment());
 });
-
-
