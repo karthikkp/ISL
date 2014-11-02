@@ -1,6 +1,6 @@
 angular.module('starter')
 
 .factory('time',function(){
-  localStorage.setItem('time', moment());
-  return localStorage.setItem('time', moment());
+  localStorage.setItem('time', moment().zone("+05:30"));
+  return localStorage.getItem('time');
 });

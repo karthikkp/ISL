@@ -26,34 +26,50 @@
 }
 
 .scorebox{
-
+	padding:0 5px !important;
+	height: 50px !important;
 	font-weight: bold;
 	background-color: #2980b9;
 	text-align: center !important;
+	vertical-align: middle !important;
 
+}
+.scorepad{
+	margin: 0;
+	padding:10px 0 !important;
+	height:auto !important;
+}
+.scorepadright{
+	margin: 0;
+	padding:`0px 0 !important;
+	height: auto !important;
 }
 .h3.scorebox{
 	margin: 0;
-	color:#bdc3c7 !important;
-	line-height: 0.6 !important;
-	padding: 20px 20px !important;
-	
+	color:#ecf0f1 !important;
+	line-height: 50px !important;
 	
 }
-.scorepad{
-	text-align: left !important;
-	padding:20px 0;
+.h4.scorepad{
+	letter-spacing: 1.px;
+	color: #ecf0f1 !important;
+	line-height: 1.5 !important;
+	
 }
-.scorepadright{
-	text-align: right !important;
-	padding:20px 0;
+.h4.scorepadright{
+	letter-spacing: 1.5px;
+	line-height: 1.5 !important;
+	color:#ecf0f1 !important;
 }
+
+
 .h5{
+	font-weight: bold;
 	margin: 0 !important;
 	color:#bdc3c7 !important;
 }
 .h4{
-	margin: 0 !important;
+	font-weight: bold;
 	color:#bdc3c7 !important;
 }
 .item-divider{
@@ -81,4 +97,13 @@
 }
 .refresh{
 	font-size: 160% !important;
+}
+.logo{
+	height: 50px !important;
+	width: 50px !important;
+}
+.scorers{
+	color: #444 !important;
+	font-weight: 300 !important;
+	font-style: italic !important;
 }

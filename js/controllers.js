@@ -1,16 +1,17 @@
 angular.module('starter')
 
 .controller('tableCtrl', function($scope, $http, time){
+	$scope.loading = false;
 	var n = angular.fromJson(localStorage.getItem('table'));
-	$scope.refresh = false;
-	$scope.table = [];
 	
+	$scope.table = [];
+	var localtime = (moment().zone("+05:30").hour() > 16 && moment().zone('+05:30').hour() < 23);
 	var execute = function(){
-	if(localStorage.getItem('table')){
-		$scope.loading = true;
+	if(n){
+		
 		$scope.table = n;
-		if(navigator.connection && navigator.connection.type != 'none' && (moment().diff(time, 'minutes') > 15 | moment().diff(time, 'minutes') < 1) ){
-			
+		if(navigator.connection && navigator.connection.type != 'none' && localtime ){
+			$scope.loading = true;
 			$http.get("https://dl.dropboxusercontent.com/u/55791376/isl/table.json")
 			.success(function(data, status, headers, config){
 				var newdata = angular.fromJson(data);
@@ -39,7 +40,7 @@ angular.module('starter')
 	else{
 		if(navigator.connection && navigator.connection.type != 'none'){
 			$scope.loading = true;
-			$http.get('http://dl.dropboxusercontent.com/u/55791376/isl/table.json')
+			$http.get('https://dl.dropboxusercontent.com/u/55791376/isl/table.json')
 			.success(function(data, status, headers, config){
 				var newdata = angular.fromJson(data);
 				localStorage.setItem('table', JSON.stringify(data));
@@ -48,23 +49,27 @@ angular.module('starter')
 			})
 			.error(function(data, status, headers, config){
 				$scope.loading = false;
-				$scope.refresh = true;
+				
 				window.plugins.toast.show('Error Loading data','short','bottom');
 			});
 		}
 		else{
 			$scope.loading = false;
-			$scope.refresh = true;
+			
 			window.plugins.toast.show('PLease connect to the internet','short','bottom');
 		}
 	}
 	}
-	ionic.Platform.ready(execute);
-$scope.refresht = function(e){
+
+	$scope.refresht = function(e){
+	localtime = true;
 	execute();
+	localtime = (moment().zone("+05:30").hour() > 16 && moment().zone('+05:30').hour() < 23);
 	
 	
 }
+	ionic.Platform.ready(execute());
+
 })
 
 /* ------------ CONTTROLLER FOR NEWS TAB  ---------  */
@@ -72,14 +77,16 @@ $scope.refresht = function(e){
 .controller('newsCtrl', function($scope, $http, time){
 	
 	$scope.refresh = false;
-$scope.loading = true;
+$scope.loading = false;
 
 $scope.news = [];
 var n = angular.fromJson(localStorage.getItem('news'));
 var execute = function(){
 	if(n){
-		$scope.loading = true;
-		if(navigator.connection && navigator.connection.type != 'none' && (moment().diff(time, 'minutes') > 15 | moment().diff(time, 'minutes') < 1) ){
+		
+		$scope.news = n;
+		if(navigator.connection && navigator.connection.type != 'none' && (moment().diff(time, 'minutes') > 15 || moment().diff(time, 'minutes') < 1) ){
+			$scope.loading = true;
 			$http.get('http://dl.dropboxusercontent.com/u/55791376/isl/news.json')
 			.success(function(data, status, headers, config){
 				var newdata = angular.fromJson(data);
@@ -122,7 +129,7 @@ var execute = function(){
 		}
 		else{
 			$scope.loading = false;
-			$scope.refresh = true;
+			
 			window.plugins.toast.show('PLease connect to the internet','short','bottom');
 		}
 	}}
@@ -134,17 +141,51 @@ execute();
 
 /* ---------- CONTROLLER FOR FIXTURES ----------------  */
 
-.controller('fixturesCtrl', function($scope, $http){
-	$scope.refresh = false;
-	$scope.loading = true;
-	$scope.loadMore = !$scope.loading && !$scope.refresh;
+.controller('fixturesCtrl', function($scope, $http, time){
+	 
+	$scope.loading = false;
+	
+	$scope.loadMore = !$scope.loading;
 	$scope.fixtures = [];
 	var fixtures = [];
+	var localtime = (moment().zone("+05:30").hour() > 16 && moment().zone('+05:30').hour() < 23);
 	var n = localStorage.getItem('fixtures');
 	var execute = function(){
-		$scope.loading = true;
-		if(navigator.connection && navigator.connection.type != 'none'){
-			$http.get('http://dl.dropboxusercontent.com/u/55791376/isl/fixtures.json')
+		
+		if(n){
+			fixtures = angular.fromJson(n);
+			$scope.fixtures = fixtures.slice(0,9);
+		
+		if(true && localtime){
+			$scope.loading = true;
+			$http.get('https://dl.dropboxusercontent.com/u/55791376/isl/fixtures.json')
+			.success(function(data, status, headers, config){
+				fixtures = angular.fromJson(data);
+				fixtures.forEach(function(e,i){
+					e.display = moment(e.date, "DD-MM-YYYY HH:mm").calendar();
+					
+				});
+				$scope.loading = false;
+
+			$scope.fixtures = fixtures.slice(0,9);
+			localStorage.setItem('fixtures', JSON.stringify(fixtures));
+			
+		})
+		.error(function(data, status, headers, config){
+			$scope.loading = false;
+			
+		});
+	}
+	else{
+		
+		$scope.loading = false;
+		
+	}
+}
+	else{
+		if(true){
+			$scope.loading = true;
+					$http.get('https://dl.dropboxusercontent.com/u/55791376/isl/fixtures.json')
 			.success(function(data, status, headers, config){
 				fixtures = angular.fromJson(data);
 				fixtures.forEach(function(e,i){
@@ -154,79 +195,105 @@ execute();
 				$scope.loading = false;
 
 			$scope.fixtures = fixtures.slice(0,10);
-			localStorage.setItem('fixtures', JSON.stringify(data));
+			localStorage.setItem('fixtures', JSON.stringify(fixtures));
 			
 		})
 		.error(function(data, status, headers, config){
 			$scope.loading = false;
-			$scope.refresh = true;
+			 
 			window.plugins.toast.show('Error loading','short','bottom');
 		});
-	}
-	else if(n){
-		fixtures = angular.fromJson(n);
-		$scope.loading = false;
-		$scope.fixtures = fixtures.slice(0,10);
-	}
-	else{
-		$scope.loading = false;
-		$scope.refresh = true;
-		window.plugins.toast.show('PLease connect to the internet','short','bottom');
+				}
+		else{
+				$scope.loading = false;
+				 
+				window.plugins.toast.show('PLease connect to the internet','short','bottom');}
 	}
 		}
 	$scope.loadMore = function(e){
-		$scope.fixtures = $scope.fixtures.concat(fixtures.slice($scope.fixtures.length-1,$scope.fixtures.length+10));
+		$scope.fixtures = $scope.fixtures.concat(fixtures.slice($scope.fixtures.length,$scope.fixtures.length+9));
 	}
 	$scope.refreshf = function(e){
+		localtime = true;
 		execute();
+		localtime = (moment().zone("+05:30").hour() > 16 && moment().zone('+05:30').hour() < 23);
 	}
 	execute();
 
 })
-.controller('resultsCtrl', function($scope,$http){
-	$scope.refresh = false;
-	$scope.loading = true;
-	$scope.loadMore = !$scope.loading && !$scope.refresh;
+.controller('resultsCtrl', function($scope,$http, time){
+	
+	$scope.loading = false;
+	 
+	$scope.loadMore = !$scope.loading;
 	$scope.results = [];
 	var results = [];
+	var localtime = (moment().zone("+05:30").hour() > 16 && moment().zone('+05:30').hour() < 23);
 	var n = localStorage.getItem('results');
 	var execute = function(){
-		$scope.loading  = true;
-		if(navigator.connection && navigator.connection.type != 'none'){
-			$http.get('./results.json')
-			.success(function(data, status, headers, config){
-				localStorage.setItem('results',JSON.stringify(data));
-				results = angular.fromJson(data);
-				results.forEach(function(e,i){
-					e.display = moment(e.date, "DD-MM-YYYY HH:mm").calendar();
-		
+		if(n){
+			results = angular.fromJson(n);
+		$scope.results = results.slice(0,9);
+				if(navigator.connection && navigator.connection.type != 'none' && localtime){
+					console.log("hey")
+					$scope.loading  = true;
+					$http.get('https://dl.dropboxusercontent.com/u/55791376/isl/results.json')
+					.success(function(data, status, headers, config){
+						localStorage.setItem('results',JSON.stringify(data));
+						results = angular.fromJson(data);
+						results.forEach(function(e,i){
+							e.display = moment(e.date, "DD-MM-YYYY HH:mm").calendar();
+				
+						});
+						$scope.loading = false;
+					$scope.results = results.slice(0,9);
+					localStorage.setItem('results',JSON.stringify(results));
+					
+				})
+				.error(function(data, status, headers, config){
+					$scope.loading = false;
+					$scope.results = results.slice(0,9);
+					
 				});
+			}
+			else{
 				$scope.loading = false;
-			$scope.results = results.slice(0,10);
-			
-		})
-		.error(function(data, status, headers, config){
-			$scope.loading = false;
-			
-			window.plugins.toast.show('error loading','short','bottom');
-		});
-	}
-	else if(n){
-		results = angular.fromJson(n);
-		$scope.loading = false;
-		$scope.results = results.slice(0,10);
-	}
+			}
+		}
 	else{
-		$scope.refresh = true;
-		$scope.loading = false;
-		window.plugins.toast.show('PLease connect to the internet','short','bottom');
+		if(navigator.connection && navigator.connection.type != 'none'){
+			$scope.loading = true; 
+			$http.get('https://dl.dropboxusercontent.com/u/55791376/isl/results.json')
+					.success(function(data, status, headers, config){
+						localStorage.setItem('results',JSON.stringify(data));
+						results = angular.fromJson(data);
+						results.forEach(function(e,i){
+							e.display = moment(e.date, "DD-MM-YYYY HH:mm").calendar();
+				
+						});
+						$scope.loading = false;
+					$scope.results = results.slice(0,10);
+					localStorage.setItem('results',JSON.stringify(results));
+					
+				})
+				.error(function(data, status, headers, config){
+					$scope.loading = false;
+					window.plugins.toast.show('error loading','short','bottom');
+				});
+		}
+		else{
+				
+				$scope.loading = false;
+				window.plugins.toast.show('PLease connect to the internet','short','bottom');}
 	}
 		}
 	$scope.loadMore = function(e){
-		$scope.results = $scope.results.concat(fixtures.slice($scope.results.length-1,$scope.results.length+10));
+		$scope.results = $scope.results.concat(results.slice($scope.results.length,$scope.results.length+9));
 	}
 	$scope.refreshr = function(e){
+		localtime = true;
 		execute();
+		localtime = (moment().zone("+05:30").hour() > 16 && moment().zone('+05:30').hour() < 23);
 		
 		
 	}

@@ -1,5 +1,7 @@
 <ion-view title="Table">
 <ion-content>
+  <div class="col" ><i class="icon ion-loading-c refresh"></i></div>
+  </div>
 <div class="card">
 <div class="row item table">
   <div class="col"><span class="h5 tablefont">Team</span></div>
@@ -18,11 +20,9 @@
   <div class="col"><span class="h6 tablefont">{{data.points}}</span></div>
 </div>
 </div>
-<div class="row">
-  <div class="col"><i class="icon ion-loading-c refresh" ng-show="loading"></i></div>
-  </div>
-  <div class="row">
-  <div class="col" on-tap="refresht()"><i class="icon ion-refresh refresh" ng-show="refresh"> Refresh</i></div>
+
+  <div class="row"  ng-show="!loading">
+  <div class="col" on-tap="refresht()"><i class="icon ion-refresh refresh"> Refresh</i></div>
   </div>
 </ion-content>
 </ion-view>
